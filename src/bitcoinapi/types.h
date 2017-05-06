@@ -86,6 +86,7 @@
 		std::vector<std::string> walletconflicts;
 		int time;
 		int timereceived;
+		int vout;
 	};
 
 	struct multisig_t{
