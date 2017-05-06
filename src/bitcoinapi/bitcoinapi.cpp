@@ -44,7 +44,7 @@ BitcoinAPI::~BitcoinAPI()
     delete httpClient;
 }
 
-Value BitcoinAPI::sendcommand(const string& command, const Value& params){    
+Value BitcoinAPI::sendcommand(const string& command, const Value& params){
     Value result;
 
     try{
@@ -576,6 +576,7 @@ vector<transactioninfo_t> BitcoinAPI::listtransactions() {
 
 		tmp.time = val["time"].asInt();
 		tmp.timereceived = val["timereceived"].asInt();
+		tmp.vout = val["vout"].asInt();
 
 		ret.push_back(tmp);
 	}
@@ -614,6 +615,7 @@ vector<transactioninfo_t> BitcoinAPI::listtransactions(const string& account, in
 
 		tmp.time = val["time"].asInt();
 		tmp.timereceived = val["timereceived"].asInt();
+		tmp.vout = val["vout"].asInt();
 
 		ret.push_back(tmp);
 	}
@@ -1023,6 +1025,7 @@ txsinceblock_t BitcoinAPI::listsinceblock(const string& blockhash, int target_co
 
 		tmp.time = val["time"].asInt();
 		tmp.timereceived = val["timereceived"].asInt();
+		tmp.vout = val["vout"].asInt();
 
 		ret.transactions.push_back(tmp);
 	}
