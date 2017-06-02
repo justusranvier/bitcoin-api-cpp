@@ -13,9 +13,9 @@
 #include <string>
 #include <sstream>
 
-#include <jsoncpp/json/json.h>
-#include <jsoncpp/json/reader.h>
-#include <jsoncpp/json/value.h>
+#include <json/json.h>
+#include <json/reader.h>
+#include <json/value.h>
 #include <jsonrpccpp/client.h>
 
 using Json::Value;
@@ -31,11 +31,11 @@ private:
 
 public:
 	explicit BitcoinException(int errcode, const std::string& message) {
-		
+
 		/* Connection error */
 		if(errcode == Errors::ERROR_CLIENT_CONNECTOR){
 			this->code = errcode;
-			this->msg = removePrefix(message, " -> ");		
+			this->msg = removePrefix(message, " -> ");
 		/* Authentication error */
 		}else if(errcode == Errors::ERROR_RPC_INTERNAL_ERROR && message.size() == 18){
 			this->code = errcode;
