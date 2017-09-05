@@ -12,6 +12,14 @@ SET(MINOR_VERSION 1)
 SET(PATCH_VERSION 0)
 SET(SO_VERSION    0)
 
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+	set(LIB_SUFFIX 64)
+	MESSAGE( "64 bit compiler detected" )
+else()
+	set(LIB_SUFFIX "")
+	MESSAGE( "32 bit compiler detected" )
+endif()
+
 # Add source directory
 ADD_SUBDIRECTORY(src/bitcoinapi)
 

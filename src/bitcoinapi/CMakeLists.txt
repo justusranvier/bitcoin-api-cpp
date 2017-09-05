@@ -36,5 +36,5 @@ SET_TARGET_PROPERTIES(bitcoinapi bitcoinapi_static PROPERTIES
 INSTALL(FILES ${bitcoinapi_header} DESTINATION include/bitcoinapi)
 
 INSTALL(TARGETS bitcoinapi bitcoinapi_static
-            LIBRARY DESTINATION lib
-            ARCHIVE DESTINATION lib)
+            LIBRARY DESTINATION lib${LIB_SUFFIX}
+            ARCHIVE DESTINATION lib${LIB_SUFFIX})
